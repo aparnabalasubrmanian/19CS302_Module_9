@@ -19,42 +19,71 @@ To write a C Write a functions to perform enqueue, dequeue, display, peek in Que
 Developed by: Aparna RB
 RegisterNumber:  212222220005
 */
-char queue[50]; 
-int size=10,front,rear,i; 
-void enqueue(char data) 
-{ 
-if(rear<size) 
-{ 
-if(front==-1) 
-{ 
-front=0; 
-} 
-rear=rear+1; 
-queue[rear]=data; 
-} 
-{ 
-printf("%c\n",queue[i]); 
-} 
-} 
-void dequeue() 
-{  
-if(front==-1||front>rear) 
-{ 
-printf("Queue Underflow\n"); 
-} 
-else 
-{ 
-front=front+1; 
-} 
- 
-} 
-void peek() 
-{ 
-printf("%c\n",queue[front]); 
- 
-} 
- 
+#include <stdio.h>
+
+float queue[100];
+int front = -1, rear = -1;
+
+void enqueue(float x)
+{
+    if (rear == -1)
+    {
+        front = rear = 0;
+        queue[rear] = x;
+    }
+    else
+    {
+        rear++;
+        queue[rear] = x;
+    }
 }
+
+void dequeue()
+{
+    if (front == -1)
+    {
+        printf("Queue Underflow\n");
+        return;
+    }
+
+    if (front == rear)
+    {
+        front = rear = -1;
+    }
+    else
+    {
+        front++;
+    }
+}
+
+void display()
+{
+    if (front == -1)
+    {
+        printf("no elements to display\n");
+        return;
+    }
+
+    for (int i = front; i <= rear; i++)
+        printf("%.1f\n", queue[i]);
+}
+
+void peek()
+{
+    if (front == -1)
+    {
+        printf("no elements to display\n");
+        return;
+    }
+
+    printf("%.1f\n", queue[front]);
+}
+
+int main()
+{
+    return 0;
+}
+
 ```
 
 ## Output:
