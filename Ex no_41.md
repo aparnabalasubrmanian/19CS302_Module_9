@@ -19,11 +19,37 @@ To write a function to find the peek of stack using array.
 Developed by: Aparna RB
 RegisterNumber:  212222220005
 */
-int stack[100],top; 
-void peek() 
-{ 
-printf("%d",stack[top]); 
-} 
+#include <stdio.h>
+
+float stack[100];
+int top = -1;
+
+void push(float x)
+{
+    top++;
+    stack[top] = x;
+}
+
+float peek()
+{
+    return stack[top];
+}
+
+int main()
+{
+    float a, b, c;
+    
+    scanf("%f %f %f", &a, &b, &c);
+
+    push(a);
+    push(b);
+    push(c);
+
+    printf("%.2f", peek());
+
+    return 0;
+}
+
 ```
 
 ## Output:
