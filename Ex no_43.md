@@ -19,19 +19,42 @@ To Write a function to display queue elements using array.
 Developed by: Aparna RB
 RegisterNumber:  212222220005
 */
-float queue[50]; 
-int rear=-1,front=-1,i; 
-void display() 
-{ 
-if(front==-1||front>rear) 
-printf("No elements to display\n"); 
-else 
-{ 
-for(i=front;i<=rear;i++) 
-printf("%.1f\n",queue[i]); 
-} 
- 
-} 
+#include <stdio.h>
+
+char queue[100];
+int front = -1, rear = -1;
+
+void enqueue(char x)
+{
+    if (rear == -1)
+    {
+        front = rear = 0;
+        queue[rear] = x;
+    }
+    else
+    {
+        rear++;
+        queue[rear] = x;
+    }
+}
+
+void display()
+{
+    if (front == -1)
+    {
+        printf("no elements to display");
+        return;
+    }
+
+    for (int i = front; i <= rear; i++)
+        printf("%c ", queue[i]);
+}
+
+int main()
+{
+    return 0;
+}
+
 
 ```
 
