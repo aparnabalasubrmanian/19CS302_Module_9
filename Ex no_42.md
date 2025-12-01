@@ -19,39 +19,72 @@ To write a fuctions to perform push,pop,display,peek in stack using array.
 Developed by: Aparna RB
 RegisterNumber:  212222220005
 */
-int stack[100]; 
-int size=3,top=-1,i; 
-void push (float data) 
-{ 
-if(top==size-1) 
-{ 
-printf("stack is full\n"); 
-} 
-else{ 
-top=top+1; 
-stack[top]=data;} 
-} void display(){ 
-for(i=top; i>=0; i--){ 
-printf("%d ",stack[i]); 
-} 
-if(top==-1) 
-{ 
-printf("stack is empty\n"); 
+#include <stdio.h>
+
+int stack[100];
+int top = -1;
+int n;
+
+void push(int x)
+{
+    if (top == n - 1)
+        return;
+    top++;
+    stack[top] = x;
 }
-Void pop() 
-{ 
-if(top==-1) 
-{ 
-printf("stack is empty\n"); 
-} 
-else{ 
-top=top-1; 
-} 
-} 
-void peek() 
-{ 
-printf("%d ",stack[top]); 
-} 
+
+int pop()
+{
+    if (top == -1)
+        return -1;
+    return stack[top--];
+}
+
+int peek()
+{
+    if (top == -1)
+        return -1;
+    return stack[top];
+}
+
+void display()
+{
+    int i;
+    for (i = top; i >= 0; i--)
+        printf("%d ", stack[i]);
+}
+
+int main()
+{
+    int choice, value;
+
+    scanf("%d", &n);
+
+    while (scanf("%d", &choice) != EOF)
+    {
+        if (choice == 1)
+        {
+            scanf("%d", &value);
+            push(value);
+        }
+        else if (choice == 2)
+        {
+            pop();
+        }
+        else if (choice == 3)
+        {
+            printf("%d\n", peek());
+        }
+        else if (choice == 4)
+        {
+            display();
+            break;
+        }
+    }
+
+    return 0;
+}
+
 ```
 
 ## Output:
